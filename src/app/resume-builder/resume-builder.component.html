@@ -1,0 +1,15 @@
+        <div class="sidenav">
+          <a routerLink = "personalDetails">Personal Details</a>
+          <a routerLink = "education">Education</a>
+          <a>Experience</a>
+          <a>Skills</a>
+        </div>
+        
+        <div class="main">
+            <router-outlet></router-outlet>
+        </div>
+        <div class="footer">
+                <button class="btn btn-primary" (click)="onPreview()">Preview</button>
+        </div>
+        
+  
