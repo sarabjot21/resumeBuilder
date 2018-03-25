@@ -15,6 +15,9 @@ import { ResumePreviewComponent } from './resume-preview/resume-preview.componen
 import { HeadingHighlightDirective } from './resume-builder/heading-highlight.directive';
 import { PersonalDetailsLayoutComponent } from './resume-builder/personal-details/personal-details-layout/personal-details-layout.component';
 import { PersonalDetailsEditorComponent } from './resume-builder/personal-details/personal-details-editor/personal-details-editor.component';
+import { EducationDetailsEditorComponent } from './resume-builder/education/education-details-editor/education-details-editor.component';
+import { EducationDetailsLayoutComponent } from './resume-builder/education/education-details-layout/education-details-layout.component';
+
 
 @NgModule({
   declarations: [
@@ -26,10 +29,13 @@ import { PersonalDetailsEditorComponent } from './resume-builder/personal-detail
     HomeComponent,
     ResumePreviewComponent,
     PersonalDetailsLayoutComponent,
-    PersonalDetailsEditorComponent
+    PersonalDetailsEditorComponent,
+    EducationDetailsEditorComponent,
+    EducationDetailsLayoutComponent,
+
   ],
   imports: [
-    BrowserModule,AppRoutingModule,AngularFontAwesomeModule,FroalaEditorModule.forRoot(), FroalaViewModule.forRoot()
+    BrowserModule,AppRoutingModule,AngularFontAwesomeModule ,FroalaEditorModule.forRoot(), FroalaViewModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,58 @@
+<div class="addSection" >
+<div class="container">
+  <div class="row">
+    <div class="class-lg-3"></div>
+    <div class="col-lg-9">
+        <label>
+          <i class="fa fa-book fa-x" aria-hidden="true">
+            <b>Education</b></i>
+          </label>
+    </div>
+  </div>
+  <div class="row">
+        <div class="col-lg-6">
+          <label><i class="fa fa-graduation-cap" aria-hidden="true"></i>School Name</label>
+        </div>
+        <div class="col-lg-5">
+          <label><i class="fa fa-calendar" aria-hidden="true"></i>Date</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-6">
+          <input type="text" ng-model="schoolName" class="form-control" disabled>
+        </div>
+        <div class="col-lg-5">
+            <input type="date" ng-model="date" class="form-control"disabled >
+      </div>      
+    </div>
+    <div class="row">
+      <div class="col-lg-5">
+        <label><i class="fa fa-file-text" aria-hidden="true"></i>Description</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-7">
+          <input type="text" ng-model="Description" class="form-control" disabled>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-5">
+        <label><i class="fa fa-percent" aria-hidden="true"></i>CGPA</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-7">
+          <input type="number" ng-model="Percentage" class="form-control" disabled>
+      </div>
+    </div>
+    <div class="removeButton">
+    <div class="row">
+        <div class="col-lg-3">
+            <!-- <span style="cursor: pointer;" (click)="removeSection()">remove</span> -->
+            <button class="btn btn-danger" (click)="removeSection()" >Remove</button></div>
+    </div>
+  </div>
+  </div>
+  </div>
+
+    

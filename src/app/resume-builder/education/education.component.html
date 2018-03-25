@@ -1,17 +1,21 @@
+<div class="backgroundTheme">
 <div class="parent-container">
     <div class="container">
         <div class="row">
-            <div class="col">
-                <h1>Education Details</h1>
+        
+                <app-education-details-layout *ngFor="let i of section" (removeClick)="removeThisSection($event)" ></app-education-details-layout>  
+             <div class="col-lg-6">
+                <button class="btn btn-success " (click)="onAddSection()">Add new School</button>
             </div>
         </div>
     </div>
 
     <div class="container">
         <div class="row">
-            <div class="col">
-                <h1>Education Details Editor</h1>
+            <div class="col-lg-12">
+                <app-education-details-editor></app-education-details-editor>
             </div>
         </div>
     </div>
-  </div>
+</div>
+</div>
