@@ -1,9 +1,9 @@
 <div class="parent-container">
     <div class="container" [ngSwitch]="templateId">
             <div id="contact-info" class="vcard" *ngSwitchCase="2">        
-                    <h1 class="fn" [froalaView]="firstName">{{firstName}}</h1>
-                        Cell: <span class="tel" [froalaView]="phoneNo">{{phoneNo}}</span><br />
-                        Email: <a class="email" href="email" [froalaView]="email">{{email}}</a>
+                    <h1 class="fn" [froalaView]="personalDetails.firstName">{{personalDetails.firstName}}</h1>
+                        Cell: <span class="tel" [froalaView]="personalDetails.phoneNo">{{personalDetails.phoneNo}}</span><br />
+                        Email: <a class="email" href="email" [froalaView]="personalDetails.email">{{personalDetails.email}}</a>
                 </div>
          
     </div>
@@ -14,26 +14,24 @@
                             <div class="row">
                                 <div class="col-lg-6">
                                         <p>First Name</p>
-                                        <p [froalaEditor]='options' [(froalaModel)]="firstName" style="width:80%"></p>
+                                        <p [froalaEditor]='options' [(froalaModel)]="personalDetails.firstName" style="width:80%"></p>
                                         
                                 </div>
                                 <div class="col-lg-6">
                                         <p>Last Name</p>
-                                        <p [froalaEditor]="options" [(froalaModel)]="lastName" style="width:80%"></p>
+                                        <p [froalaEditor]="options" [(froalaModel)]="personalDetails.lastName" style="width:80%"></p>
                                 </div>
                             </div>
                         </div>
-                        <!-- <p>DOB</p>
-                        <div [froalaEditor]="options"></div> -->
                         <div class="container-fluid">
                             <div class="row">
                                 <div class="col-lg-6">
                                         <p>Phone No</p>
-                                        <p [froalaEditor]="options" [(froalaModel)]="phoneNo" style="width:80%"></p>
+                                        <p [froalaEditor]="options" [(froalaModel)]="personalDetails.phoneNo" style="width:80%"></p>
                                 </div>
                                 <div class="col-lg-6">
                                         <p>Email</p>
-                                        <p [froalaEditor]="options" [(froalaModel)]="email" style="width:80%"></p>
+                                        <p [froalaEditor]="options" [(froalaModel)]="personalDetails.email" style="width:80%"></p>
                                 </div>
                             </div>
                         </div>
@@ -41,11 +39,11 @@
                             <div class="row">
                                 <div class="col-lg-6">
                                         <p>LinkedIn</p>
-                                        <p [froalaEditor]="options" [(froalaModel)]="linkedIn" style="width:80%"></p>
+                                        <p [froalaEditor]="options" [(froalaModel)]="personalDetails.linkedIn" style="width:80%"></p>
                                 </div>
                                 <div class="col-lg-6">
                                         <p>Twitter</p>
-                                        <p [froalaEditor]="options" [(froalaModel)]="twitter" style="width:80%"></p>
+                                        <p [froalaEditor]="options" [(froalaModel)]="personalDetails.twitter" style="width:80%"></p>
                                 </div>
                             </div>
                         </div>          
@@ -53,23 +51,3 @@
         </div>
     </div>
 </div>
-
-
-<!-- <app-personal-details-editor></app-personal-details-editor> -->
-<!-- <div class="parent-container">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <app-personal-details-layout></app-personal-details-layout>
-            </div>
-        </div>
-    </div>
-
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <app-personal-details-editor></app-personal-details-editor>
-            </div>
-        </div>
-    </div>
-</div> -->

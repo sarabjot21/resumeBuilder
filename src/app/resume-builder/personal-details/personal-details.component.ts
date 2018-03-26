@@ -27,13 +27,6 @@ export class PersonalDetailsComponent implements OnInit,OnDestroy{
     this.personalDetails=this.dataStore.personalDetails;
   }
 
-  // firstName='Example Name';
-  // lastName='';
-  // phoneNo='Example PhoneNo';
-  // email='Example Email';
-  // linkedIn='Example LinkedIn Id';
-  // twitter='Example Twitter Id'
-
   public options: Object = { 
     placeholderText: '',
     charCounterCount: false,
@@ -41,7 +34,7 @@ export class PersonalDetailsComponent implements OnInit,OnDestroy{
   }
 
   ngOnDestroy(){
-    console.log('end')
+    this.dataStore.onSetPersonalDetails(this.personalDetails);
   }
 
 }

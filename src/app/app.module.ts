@@ -18,14 +18,12 @@ import { ResumePreview1Component } from './resume-preview-1/resume-preview-1.com
 import { ResumePreview2Component } from './resume-preview-2/resume-preview-2.component';
 import { ResumePreview3Component } from './resume-preview-3/resume-preview-3.component';
 
-import { HeadingHighlightDirective } from './resume-builder/heading-highlight.directive';
 import { DataStoreService } from './data-store.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     ResumeBuilderComponent,
-    HeadingHighlightDirective,
     PersonalDetailsComponent,
     EducationComponent,
     HomeComponent,

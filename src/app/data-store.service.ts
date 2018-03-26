@@ -14,10 +14,6 @@ export class DataStoreService {
 
   constructor() { }
 
-  // onGetPersonalDetails(){
-  //   return this.personalDetails;
-  // }
-
   onSetPersonalDetails(personalDetails){
     this.personalDetails=personalDetails;
   }

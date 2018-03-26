@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataStoreService } from '../data-store.service';
 
 @Component({
   selector: 'app-resume-preview-1',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ResumePreview1Component implements OnInit {
 
-  constructor() { }
+  personalDetails:{firstName,lastName,phoneNo,email,linkedIn,twitter}={
+    firstName:'',
+    lastName:'',
+    phoneNo:'',
+    email:'',
+    linkedIn:'',
+    twitter:''
+    }
+
+  constructor(private dataStore:DataStoreService) { }
 
   ngOnInit() {
+    this.personalDetails=this.dataStore.personalDetails;
   }
 
 }
