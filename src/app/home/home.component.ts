@@ -39,7 +39,7 @@ export class HomeComponent implements OnInit {
   }
 
   onSuccess(){
-    this.router.navigate(['resumeDetails']);
+    this.router.navigate(['resumeDetails',this.i]);
   }
 
 

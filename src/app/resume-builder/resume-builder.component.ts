@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router,ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-resume-builder',
@@ -8,13 +8,16 @@ import { Router } from '@angular/router';
 })
 export class ResumeBuilderComponent implements OnInit {
 
-  constructor(private router:Router) { }
+   public routeId:number;
+  constructor(private router:Router,private route:ActivatedRoute) { }
 
   ngOnInit() {
+    this.routeId=this.route.snapshot.params['id'];
   }
 
   onPreview(){
-    this.router.navigate(['resumePreview'])
+    console.log(this.routeId);
+    this.router.navigate([this.routeId])
   }
 
 }

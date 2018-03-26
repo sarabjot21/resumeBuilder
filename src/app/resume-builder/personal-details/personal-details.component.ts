@@ -1,15 +1,47 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,OnDestroy } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { ResumeBuilderComponent } from '../resume-builder.component';
+import { DataStoreService } from '../../data-store.service';
 
 @Component({
   selector: 'app-personal-details',
   templateUrl: './personal-details.component.html',
   styleUrls: ['./personal-details.component.css']
 })
-export class PersonalDetailsComponent implements OnInit {
+export class PersonalDetailsComponent implements OnInit,OnDestroy{
 
-  constructor() { }
+  constructor(private routeId:ResumeBuilderComponent,private dataStore:DataStoreService) { }
+
+  templateId:number;
+  personalDetails:{firstName,lastName,phoneNo,email,linkedIn,twitter}={
+    firstName:'',
+    lastName:'',
+    phoneNo:'',
+    email:'',
+    linkedIn:'',
+    twitter:''
+    }
 
   ngOnInit() {
+    this.templateId=this.routeId.routeId;
+    this.personalDetails=this.dataStore.personalDetails;
+  }
+
+  // firstName='Example Name';
+  // lastName='';
+  // phoneNo='Example PhoneNo';
+  // email='Example Email';
+  // linkedIn='Example LinkedIn Id';
+  // twitter='Example Twitter Id'
+
+  public options: Object = { 
+    placeholderText: '',
+    charCounterCount: false,
+    toolbarButtons: ['bold', 'italic','fontSize','fontFamilyz']
+  }
+
+  ngOnDestroy(){
+    console.log('end')
   }
 
 }
