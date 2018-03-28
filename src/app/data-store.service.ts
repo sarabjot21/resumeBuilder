@@ -30,6 +30,8 @@ export class DataStoreService {
     address:'Click Me to Edit Address'
     }
 
+    educationDetails:{schoolName:string,Qualification:string,Marks:string}[]=[{schoolName:'Enter School Name',Qualification:'Enter Qualifiaction',Marks:'Enter Marks'}];
+
   constructor() { }
 
   onActivateLinks(links){
@@ -42,6 +44,18 @@ export class DataStoreService {
 
   onSetPersonalDetails(personalDetails){
     this.personalDetails=personalDetails;
+  }
+
+  onSetEducationDetails(educationDetails){
+    this.educationDetails=educationDetails;
+  }
+  onAddEducationDetails(){
+    this.educationDetails.push({
+      schoolName:'Enter School Name',Qualification:'Enter Qualifiaction',Marks:'Enter Marks'
+    })
+  }
+  onRemoveEducationDetails(){
+    this.educationDetails.pop();
   }
 
 

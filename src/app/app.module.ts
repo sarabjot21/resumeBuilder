@@ -11,8 +11,6 @@ import { HomeComponent } from './home/home.component';
 import { ResumeBuilderComponent } from './resume-builder/resume-builder.component';
 import { PersonalDetailsComponent } from './resume-builder/personal-details/personal-details.component';
 import { EducationComponent } from './resume-builder/education/education.component';
-import { EducationDetailsEditorComponent } from './resume-builder/education/education-details-editor/education-details-editor.component';
-import { EducationDetailsLayoutComponent } from './resume-builder/education/education-details-layout/education-details-layout.component';
 import { ResumePreviewComponent } from './resume-preview/resume-preview.component';
 import { ResumePreview1Component } from './resume-preview-1/resume-preview-1.component';
 import { ResumePreview2Component } from './resume-preview-2/resume-preview-2.component';
@@ -28,8 +26,6 @@ import { DataStoreService } from './data-store.service';
     EducationComponent,
     HomeComponent,
     ResumePreviewComponent,
-    EducationDetailsEditorComponent,
-    EducationDetailsLayoutComponent,
     ResumePreview1Component,
     ResumePreview2Component,
     ResumePreview3Component,
