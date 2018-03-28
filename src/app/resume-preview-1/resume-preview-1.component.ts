@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataStoreService } from '../data-store.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-resume-preview-1',
@@ -8,19 +9,15 @@ import { DataStoreService } from '../data-store.service';
 })
 export class ResumePreview1Component implements OnInit {
 
-  personalDetails:{firstName,lastName,phoneNo,email,linkedIn,twitter}={
-    firstName:'',
-    lastName:'',
-    phoneNo:'',
-    email:'',
-    linkedIn:'',
-    twitter:''
-    }
+  personalDetails:{name,profession,dob,phoneNo,email,address};
 
-  constructor(private dataStore:DataStoreService) { }
+  constructor(private dataStore:DataStoreService,private route:Router) { }
 
   ngOnInit() {
     this.personalDetails=this.dataStore.personalDetails;
+  }
+  onBackPage(){
+    this.route.navigate(['resumeDetails','2']);
   }
 
 }

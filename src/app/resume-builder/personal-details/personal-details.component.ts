@@ -13,14 +13,8 @@ export class PersonalDetailsComponent implements OnInit,OnDestroy{
   constructor(private routeId:ResumeBuilderComponent,private dataStore:DataStoreService) { }
 
   templateId:number;
-  personalDetails:{firstName,lastName,phoneNo,email,linkedIn,twitter}={
-    firstName:'',
-    lastName:'',
-    phoneNo:'',
-    email:'',
-    linkedIn:'',
-    twitter:''
-    }
+  froalaFlag:number=1;
+  personalDetails:{name:string,profession:string,dob:string,phoneNo:string,email:string,address:string};
 
   ngOnInit() {
     this.templateId=this.routeId.routeId;
@@ -28,9 +22,13 @@ export class PersonalDetailsComponent implements OnInit,OnDestroy{
   }
 
   public options: Object = { 
-    placeholderText: '',
+    placeholderText: 'Edit Me',
     charCounterCount: false,
-    toolbarButtons: ['bold', 'italic','fontSize','fontFamilyz']
+    toolbarButtons: ['bold', 'italic','fontSize','fontFamily']
+  }
+
+  onTextClick(froalaFlag:number){
+    this.froalaFlag=froalaFlag;
   }
 
   ngOnDestroy(){

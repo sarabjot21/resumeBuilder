@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router,ActivatedRoute } from '@angular/router';
+import { DataStoreService } from '../data-store.service';
 
 @Component({
   selector: 'app-home',
@@ -10,8 +11,10 @@ export class HomeComponent implements OnInit {
 
   i:number=1;
   j:number=4;
+
+  personalDetails:{name,profession,dob,phoneNo,email,address};
   
-  constructor(private router:Router,private route:ActivatedRoute){}
+  constructor(private router:Router,private route:ActivatedRoute,private dataStore:DataStoreService){}
 
   ngOnInit(){}
 
@@ -39,6 +42,16 @@ export class HomeComponent implements OnInit {
   }
 
   onSuccess(){
+    this.dataStore.onSetPersonalDetails(
+      this.personalDetails={
+        name:'Click Me to Edit Name',
+        profession:'Click Me to Edit Profession',
+        dob:'Click Me to Edit Dob',
+        phoneNo:'Click Me to Edit Phone No',
+        email:'Click Me to Edit Email',
+        address:'Click Me to Edit Address'
+        }
+    );
     this.router.navigate(['resumeDetails',this.i]);
   }
 

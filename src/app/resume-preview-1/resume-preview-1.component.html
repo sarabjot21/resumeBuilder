@@ -6,10 +6,10 @@
   
       <!-- Microformats! -->
   
-      <h1 class="fn" [froalaView]="personalDetails.firstName">{{personalDetails.firstName}}</h1>
+      <h1 class="fn" [froalaView]="personalDetails.name">{{personalDetails.name}}</h1>
   
       <p>
-          Cell: <span class="tel" [froalaView]="personalDetails.phoneNo">{{personalDetails.phoneNo}}</span><br />
+          Phone No: <span class="tel" [froalaView]="personalDetails.phoneNo">{{personalDetails.phoneNo}}</span><br />
           Email: <a class="email" href="mailto:greatoldone@lovecraft.com" [froalaView]="personalDetails.email">{{personalDetails.email}}</a>
       </p>
   </div>
@@ -79,5 +79,7 @@
   </dl>
   
   <div class="clear"></div>
-
+  <div class="footer">
+        <button class="btn btn-primary" (click)="onBackPage()">Back To Editor</button>
+</div>
 </div>

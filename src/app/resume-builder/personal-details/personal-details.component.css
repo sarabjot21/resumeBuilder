@@ -7,10 +7,23 @@
 .headings{
     font-size: 25px;
 }
+.col-lg-5{
+    background-color: lightgrey;
+    height: 100%;
+    width: 250px;
+    margin-left:84%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+hr{
+    background-color: black
+}
 
-
-
-* { margin: 0; padding: 0; }
+/* * { margin: 0; padding: 0; } */
 /* body { font: 16px Helvetica, Sans-Serif; line-height: 24px; background: url(images/noise.jpg); } */
 .clear { clear: both; }
 #page-wrap { width: 800px; margin: 40px auto 60px; }
