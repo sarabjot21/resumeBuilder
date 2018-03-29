@@ -3,7 +3,8 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class DataStoreService {
 
-  saveFlag:number=0;
+  templateIdi:number=1;
+  templateIdj:number=4;
 
   links:{activateHobbies,activateInterests,activateCertificates,activateLanguages,activateSummary}={
   activateHobbies:0,
@@ -22,17 +23,27 @@ export class DataStoreService {
   }
 
   personalDetails:{name,profession,dob,phoneNo,email,address}={
-    name:'Click Me to Edit Name',
-    profession:'Click Me to Edit Profession',
-    dob:'Click Me to Edit Dob',
-    phoneNo:'Click Me to Edit Phone No',
-    email:'Click Me to Edit Email',
-    address:'Click Me to Edit Address'
+    name:'Name',
+    profession:'Profession',
+    dob:'Dob',
+    phoneNo:'Phone',
+    email:'Email',
+    address:'Address'
     }
 
-    educationDetails:{schoolName:string,Qualification:string,Marks:string}[]=[{schoolName:'Enter School Name',Qualification:'Enter Qualifiaction',Marks:'Enter Marks'}];
+    educationDetails:{schoolName:string,Qualification:string,Marks:string}[]=[{schoolName:'School',Qualification:'Qualifiaction',Marks:'Marks'}];
 
+    id:number=0;
+
+    skills:{name:string,details:string}[]=[{name:'Name',details:'Details'}];
+
+    skillId:number=0;
   constructor() { }
+
+  onSetTemplateId(templateIdi,templateIdj){
+    this.templateIdi=templateIdi;
+    this.templateIdj=templateIdj;
+  }
 
   onActivateLinks(links){
     this.links=links;
@@ -51,12 +62,31 @@ export class DataStoreService {
   }
   onAddEducationDetails(){
     this.educationDetails.push({
-      schoolName:'Enter School Name',Qualification:'Enter Qualifiaction',Marks:'Enter Marks'
+      schoolName:'School',Qualification:'Qualifiaction',Marks:'Marks'
     })
   }
   onRemoveEducationDetails(){
     this.educationDetails.pop();
   }
 
+  onSetIdDetails(id){
+    this.id=id;
+  }
+
+  onSetSkillDetails(skills){
+    this.skills=skills;
+  }
+  onAddSkillDetails(){
+    this.skills.push({
+      name:'Name',details:'Details'
+    })
+  }
+  onRemoveSkillDetails(){
+    this.skills.pop();
+  }
+
+  onSetSkillIdDetails(id){
+    this.skillId=id;
+  }
 
 }

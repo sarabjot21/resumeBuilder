@@ -14,17 +14,21 @@ export class EducationComponent implements OnInit ,OnDestroy{
     // this.section=["first"];
    }
    templateId:number;
-   id:number=0;
+   id:number;
+   froalaId:number=0;
    educationDetails=[{schoolName:'',Qualification:'',Marks:''}]; 
 
   ngOnInit() {
     this.templateId=this.routeId.routeId;
+    this.id=this.dataStore.id;
     this.educationDetails=this.dataStore.educationDetails;
+    console.log('in init')
     }
     public options: Object = { 
-      placeholderText: '',
+      placeholderText: 'Edit Me',
       charCounterCount: false,
-      toolbarButtons: ['bold', 'italic','fontSize','fontFamily']
+      toolbarButtons: ['bold', 'italic','fontSize','fontFamily'],
+      heightMax: 60
     }
 
     onAddDetails(){
@@ -34,13 +38,22 @@ export class EducationComponent implements OnInit ,OnDestroy{
 
     onRemoveDetails(){
       if(this.id>=1){
-        this.id--;
         this.dataStore.onRemoveEducationDetails();
+        this.id--;
       }
+      if(this.froalaId>0){
+        this.froalaId--;
+      }
+    }
+
+    onUpdateButton(buttonId){
+      console.log(buttonId.id);
+      this.froalaId=buttonId.id;
     }
 
   ngOnDestroy(){
     this.dataStore.onSetEducationDetails(this.educationDetails)
+    this.dataStore.onSetIdDetails(this.id)
   }
  
   // onAddSection(){ 

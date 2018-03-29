@@ -9,14 +9,18 @@ import { DataStoreService } from '../data-store.service';
 })
 export class HomeComponent implements OnInit {
 
-  i:number=1;
-  j:number=4;
+  i:number;
+  j:number;
 
   personalDetails:{name,profession,dob,phoneNo,email,address};
+  educationDetails:{schoolName:string,Qualification:string,Marks:string}[];
   
   constructor(private router:Router,private route:ActivatedRoute,private dataStore:DataStoreService){}
 
-  ngOnInit(){}
+  ngOnInit(){
+    this.i=this.dataStore.templateIdi;
+    this.j=this.dataStore.templateIdj;
+  }
 
   onNext(){
     if(this.i<4){
@@ -42,18 +46,27 @@ export class HomeComponent implements OnInit {
   }
 
   onSuccess(){
+
+    this.dataStore.onSetTemplateId(this.i,this.j);
+
     this.dataStore.onSetPersonalDetails(
       this.personalDetails={
-        name:'Click Me to Edit Name',
-        profession:'Click Me to Edit Profession',
-        dob:'Click Me to Edit Dob',
-        phoneNo:'Click Me to Edit Phone No',
-        email:'Click Me to Edit Email',
-        address:'Click Me to Edit Address'
+        name:'Name',
+        profession:'Profession',
+        dob:'Dob',
+        phoneNo:'Phone',
+        email:'Email',
+        address:'Address'
         }
     );
+
+    this.dataStore.onSetEducationDetails(
+      this.educationDetails=[{schoolName:'School',Qualification:'Qualifiaction',Marks:'Marks'}]
+    )
+
+    this.dataStore.onSetIdDetails(0);
+
     this.router.navigate(['resumeDetails',this.i]);
   }
-
 
 }

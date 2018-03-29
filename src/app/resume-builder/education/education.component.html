@@ -1,75 +1,47 @@
-<!-- <div class="parent-container">
-    <div class="container" [ngSwitch]="templateId">
-             
-                <div *ngFor="let element of educationDetails;let i=index" [element]=element [id]=i>
-                        <h1 class="fn" [froalaView]="element.schoolName">{{element.schoolName}}</h1>
-                        Qualification: <span class="tel" [froalaView]="element.Qualification">{{element.Qualification}</span><br />
-                        Marks: <a class="email" href="email" [froalaView]="element.Marks">{{element.Marks}}</a>
-                </div>       
-                
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                            <div class="container-fluid">
-                                    <div class="row">
-                                        <div class="col-lg-6">
-                                                <p>School Name</p>
-                                                <p [froalaEditor]='options' [(froalaModel)]="educationDetails[0].schoolName" style="width:80%"></p>
-                
-                                               </div>
-                                               <div class="col-lg-6">
-                                                <p>Marks</p>
-                                                <p [froalaEditor]="options" [(froalaModel)]="educationDetails[0].Marks" style="width:80%"></p>
+<div class="parent-container">
+        <div class="col-lg-7" [ngSwitch]="templateId">
+                        <div id="contact-info" class="vcard" *ngSwitchCase="2">  
+                                        <div class="container" *ngFor="let education of educationDetails;let i=index">
+                                                <div class="row">
+                                                                <div class="col-lg-10">
+                                                                                <dd>
+                                                                                        <h2 [froalaView]="educationDetails[i].Qualification">{{educationDetails[i].Qualification}}</h2>
+                                                                                        <strong>School:</strong><p [froalaView]="educationDetails[i].schoolName">{{educationDetails[i].schoolName}}</p>
+                                                                                        <strong>Marks:</strong><p [froalaView]="educationDetails[i].Marks">{{educationDetails[i].Marks}}</p>
+                                                                                </dd>
+                                                                </div>
+                                                                <div class="col-lg-2">
+                                                                        <button class="btn btn-primary" id="{{i}}" #buttonId (click)="onUpdateButton(buttonId)">Update</button>
+                                                                </div>
+                                                </div>
                                         </div>
-                                    </div>
-            
-                                </div>
-                    </div>
-                </div>
-            </div>
+                        </div>        
+        </div>
+        <div class="col-lg-5">
+                        <div class="container text-center"><h3><b>EDITOR</b></h3></div>
+                        <hr>
+                        <div class="container text-center">
+                                        <div class="row">
+                                                        <p>Qualification</p>
+                                                        <p [froalaEditor]='options' [(froalaModel)]="educationDetails[froalaId].Qualification" style="width:80%"></p>
+                                                </div>
+                                                <div class="row">
+                                                        <p>School</p>
+                                                        <p [froalaEditor]="options" [(froalaModel)]="educationDetails[froalaId].schoolName" style="width:80%"></p>
+                                                </div>
+                                                <div class="row">
+                                                        <p>Marks</p>
+                                                        <p [froalaEditor]="options" [(froalaModel)]="educationDetails[froalaId].Marks" style="width:80%"></p>
+                                                </div>
+                                                <div class="row">
+                                                        <div class="col-lg-6">
+                                                                <button class="btn btn-primary" (click)="onAddDetails()">Add</button>
+                                                        </div>
+                                                        <div class="col-lg-6">
+                                                                <button class="btn btn-primary" (click)="onRemoveDetails()">Remove</button>
+                                                        </div>
+                                                </div>
+                        </div>
+        </div>              
 </div>
-           -->
-
-
-           <div class="parent-container">
-            <div class="container" [ngSwitch]="templateId">
-                    <div id="contact-info" class="vcard" *ngSwitchCase="2">  
-                        <div class="container" *ngFor="let education of educationDetails">
-                                <h1 class="fn" [froalaView]="educationDetails[id].Qualification">Qualification: {{educationDetails[id].Qualification}}</h1>
-                                SchoolName: <span class="tel" [froalaView]="educationDetails[id].schoolName">{{educationDetails[id].schoolName}}</span><br />
-                                Marks: <a class="email" href="email" [froalaView]="educationDetails[id].Marks">{{educationDetails[id].Marks}}</a>
-                        </div>      
-                        </div>
-                        </div>
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                        <div class="container-fluid">
-                                                <div class="row">
-                                                    <div class="col-lg-6">
-                                                            <p>Qualification</p>
-                                                            <p [froalaEditor]='options' [(froalaModel)]="educationDetails[id].Qualification" style="width:80%"></p>
-                                                            
-                                                    </div>
-                                                    <div class="col-lg-6">
-                                                            <p>SchoolName</p>
-                                                            <p [froalaEditor]="options" [(froalaModel)]="educationDetails[id].schoolName" style="width:80%"></p>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-lg-6">
-                                                            <p>Marks</p>
-                                                            <p [froalaEditor]="options" [(froalaModel)]="educationDetails[id].Marks" style="width:80%"></p>
-                                                    </div>
-                                                </div>
-                                                <div class="container">
-                                                    <div class="col-lg-6">
-                                                            <button class="btn btn-primary" (click)="onAddDetails()">Add</button>
-                                                    </div>
-                                                    <div class="col-lg-6">
-                                                            <button class="btn btn-primary" (click)="onRemoveDetails()">Remove</button>
-                                                    </div>
-                                                </div>
-                                            </div>
                  

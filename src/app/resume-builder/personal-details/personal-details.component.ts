@@ -24,7 +24,8 @@ export class PersonalDetailsComponent implements OnInit,OnDestroy{
   public options: Object = { 
     placeholderText: 'Edit Me',
     charCounterCount: false,
-    toolbarButtons: ['bold', 'italic','fontSize','fontFamily']
+    toolbarButtons: ['bold', 'italic','fontSize','fontFamily'],
+    heightMax: 60
   }
 
   onTextClick(froalaFlag:number){

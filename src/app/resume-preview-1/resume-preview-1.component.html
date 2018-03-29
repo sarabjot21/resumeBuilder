@@ -29,21 +29,18 @@
       <dd class="clear"></dd>
       
       <dt>Education</dt>
-      <dd>
-          <h2>Withering Madness University - Planet Vhoorl</h2>
-          <p><strong>Major:</strong> Public Relations<br />
-             <strong>Minor:</strong> Scale Tending</p>
+      <dd *ngFor="let education of educationDetails;let i=index">
+        <h2 [froalaView]="educationDetails[i].Qualification">{{educationDetails[id].Qualification}}</h2>
+           <p [froalaView]="educationDetails[i].schoolName">{{educationDetails[id].schoolName}}</p>
+           <p [froalaView]="educationDetails[i].Marks">{{educationDetails[id].Marks}}</p>
       </dd>
       
       <dd class="clear"></dd>
       
       <dt>Skills</dt>
-      <dd>
-          <h2>Office skills</h2>
-          <p>Office and records management, database administration, event organization, customer support, travel coordination</p>
-          
-          <h2>Computer skills</h2>
-          <p>Microsoft productivity software (Word, Excel, etc), Adobe Creative Suite, Windows</p>
+      <dd *ngFor="let skill of skills;let j=index">
+          <h2 [froalaView]="skills[j].name">{{skills[j].name}}</h2>
+          <p [froalaView]="skills[j].details">{{skills[j].details}}</p>
       </dd>
       
       <dd class="clear"></dd>
