@@ -1,0 +1,50 @@
+<div class="parent-container">
+    <div class="col-lg-7" [ngSwitch]="templateId">
+      <div class="container text-center">
+        <h3>
+          <b>LANGUAGES</b>
+        </h3>
+      </div>
+      <hr>
+      <div id="contact-info" class="vcard" *ngSwitchCase="2">
+        <div class="container" *ngFor="let language of languages;let i=index">
+          <div class="row">
+            <div class="col-lg-10">
+              <dd>
+                <strong>Languages:</strong>
+                <p [froalaView]="languages[i]">{{languages[i]}}</p>
+              </dd>
+            </div>
+            <div class="col-lg-2">
+              <button class="btn btn-primary" id="{{i}}" #buttonId (click)="onUpdateButton(buttonId)">Update</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-5">
+      <div class="container text-center">
+        <h3>
+          <b>EDITOR</b>
+        </h3>
+      </div>
+      <hr>
+      <div class="container text-center">
+        <div class="row">
+          <p>Languages</p>
+          <p [froalaEditor]="options" [(froalaModel)]="languages[froalaId]" style="width:80%"></p>
+        </div>
+        <div class="row">
+          <div class="col-lg-6">
+            <button class="btn btn-primary" (click)="onAddDetails()">Add</button>
+          </div>
+          <div class="col-lg-6">
+            <button class="btn btn-primary" (click)="onRemoveDetails()">Remove</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+

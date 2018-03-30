@@ -1,6 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Router,ActivatedRoute } from '@angular/router';
-import { DataStoreService } from '../data-store.service';
+import { DataStoreService } from '../services/data-store.service';
+import { PersonalDetailsDataService } from '../services/personal-details-data.service';
+import { EducationDetailsDataService } from '../services/education-details-data.service';
+import { SkillsDataService } from '../services/skills-data.service';
+import { ExperienceDataService } from '../services/experience-data.service';
+import { CertificatesDataService } from '../services/certificates-data.service';
+import { HobbiesDataService } from '../services/hobbies-data.service';
+import { InterestsDataService } from '../services/interests-data.service';
+import { LanguagesDataService } from '../services/languages-data.service';
 
 @Component({
   selector: 'app-home',
@@ -9,48 +17,58 @@ import { DataStoreService } from '../data-store.service';
 })
 export class HomeComponent implements OnInit {
 
-  i:number;
-  j:number;
+  templateId:number;
+  templateIdprev:number;
 
-  personalDetails:{name,profession,dob,phoneNo,email,address};
-  educationDetails:{schoolName:string,Qualification:string,Marks:string}[];
-  
-  constructor(private router:Router,private route:ActivatedRoute,private dataStore:DataStoreService){}
+  constructor(
+    private router:Router,
+    private route:ActivatedRoute,
+    private dataStore:DataStoreService,
+    private personalDetailsData:PersonalDetailsDataService,
+    private educationDetailsData:EducationDetailsDataService,
+    private skillsData:SkillsDataService,
+    private experienceData:ExperienceDataService,
+    private hobbiesData:HobbiesDataService,
+    private interestsData:InterestsDataService,
+    private certificatesData:CertificatesDataService,
+    private languagesData:LanguagesDataService
+  ){}
 
   ngOnInit(){
-    this.i=this.dataStore.templateIdi;
-    this.j=this.dataStore.templateIdj;
+    this.templateId=this.dataStore.templateId;
+    this.templateIdprev=this.dataStore.templateIdprev;
   }
 
   onNext(){
-    if(this.i<4){
-    this.j=this.i;
-    this.i++;
+    if(this.templateId<4){
+    this.templateIdprev=this.templateId;
+    this.templateId++;
     }
     else{
-      this.j=this.i;
-      this.i=1;
+      this.templateIdprev=this.templateId;
+      this.templateId=1;
     }
   }
 
   onPrev(){
-    if(this.j>0){
-    this.i=this.j
-    this.j--;
+    if(this.templateIdprev>0){
+    this.templateId=this.templateIdprev
+    this.templateIdprev--;
   }
     else{
-      this.j=4;
-      this.i=this.j
-      this.j--;
+      this.templateIdprev=4;
+      this.templateId=this.templateIdprev
+      this.templateIdprev--;
     }
   }
 
   onSuccess(){
 
-    this.dataStore.onSetTemplateId(this.i,this.j);
+    this.dataStore.onSetTemplateId(this.templateId,this.templateIdprev);
 
-    this.dataStore.onSetPersonalDetails(
-      this.personalDetails={
+    // PERSONAL DETAILS NULLIFY
+    this.personalDetailsData.onSetPersonalDetails(
+      {
         name:'Name',
         profession:'Profession',
         dob:'Dob',
@@ -60,13 +78,57 @@ export class HomeComponent implements OnInit {
         }
     );
 
-    this.dataStore.onSetEducationDetails(
-      this.educationDetails=[{schoolName:'School',Qualification:'Qualifiaction',Marks:'Marks'}]
+    // EDUCATION DETAILS NULLIFY
+    this.educationDetailsData.onSetEducationDetails(
+      [{schoolName:'School',Qualification:'Qualifiaction',Marks:'Marks'}]
     )
 
-    this.dataStore.onSetIdDetails(0);
+    this.educationDetailsData.onSetEducationId(0);
 
-    this.router.navigate(['resumeDetails',this.i]);
+    // SKILL DETAILS NULLIFY
+    this.skillsData.onSetSkillDetails(
+      [{name:'Name',details:'Details'}]
+    )
+
+    this.skillsData.onSetSkillId(0);
+
+    // EXPERIENCE DETAILS NULLIFY
+    this.experienceData.onSetExperienceDetails(
+      [{designation:'Designation',company:'Company',duration:'Duartion',details:'Details'}]
+    )
+
+    this.experienceData.onSetExperienceId(0);
+
+    // HOBBIES DETAILS NULLIFY
+    this.hobbiesData.onSetHobbies(
+      ['Hobbies']
+    )
+
+    this.hobbiesData.onSetHobbiesId(0);
+
+    // INTERESTS DETAILS NULLIFY
+    this.interestsData.onSetInterests(
+      ['Interest']
+    )
+
+    this.interestsData.onSetInterestsId(0);
+
+    // CERTIFICATES DETAILS NULLIFY
+    this.certificatesData.onSetCertificates(
+      ['Certificate']
+    )
+
+    this.certificatesData.onSetCertificatesId(0);
+
+    // LANGUAGES DETAILS NULLIFY
+    this.languagesData.onSetLanguages(
+      ['Language']
+    )
+
+    this.languagesData.onSetLanguagesId(0);
+
+
+    this.router.navigate(['resumeDetails',this.templateId]);
   }
 
 }

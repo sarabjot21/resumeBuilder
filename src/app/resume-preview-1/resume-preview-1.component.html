@@ -13,15 +13,6 @@
           Email: <a class="email" href="mailto:greatoldone@lovecraft.com" [froalaView]="personalDetails.email">{{personalDetails.email}}</a>
       </p>
   </div>
-          
-  <div id="objective">
-      <p>
-          I am an outgoing and energetic (ask anybody) young professional, seeking a 
-          career that fits my professional skills, personality, and murderous tendencies. 
-          My squid-like head is a masterful problem solver and inspires fear in who gaze upon it. 
-          I can bring world domination to your organization. 
-      </p>
-  </div>
   
   <div class="clear"></div>
   
@@ -30,49 +21,57 @@
       
       <dt>Education</dt>
       <dd *ngFor="let education of educationDetails;let i=index">
-        <h2 [froalaView]="educationDetails[i].Qualification">{{educationDetails[id].Qualification}}</h2>
-           <p [froalaView]="educationDetails[i].schoolName">{{educationDetails[id].schoolName}}</p>
-           <p [froalaView]="educationDetails[i].Marks">{{educationDetails[id].Marks}}</p>
+        <h2 [froalaView]="educationDetails[i].Qualification">{{educationDetails[i].Qualification}}</h2>
+           <p [froalaView]="educationDetails[i].schoolName">{{educationDetails[i].schoolName}}</p>
+           <p [froalaView]="educationDetails[i].Marks">{{educationDetails[i].Marks}}</p>
       </dd>
       
       <dd class="clear"></dd>
       
       <dt>Skills</dt>
-      <dd *ngFor="let skill of skills;let j=index">
-          <h2 [froalaView]="skills[j].name">{{skills[j].name}}</h2>
-          <p [froalaView]="skills[j].details">{{skills[j].details}}</p>
+      <dd *ngFor="let skill of skills;let i=index">
+          <h2 [froalaView]="skills[i].name">{{skills[i].name}}</h2>
+          <p [froalaView]="skills[i].details">{{skills[i].details}}</p>
       </dd>
       
       <dd class="clear"></dd>
       
       <dt>Experience</dt>
-      <dd>
-          <h2>Doomsday Cult <span>Leader/Overlord - Baton Rogue, LA - 1926-2010</span></h2>
-          <ul>
-              <li>Inspired and won highest peasant death competition among servants</li>
-              <li>Helped coordinate managers to grow cult following</li>
-              <li>Provided untimely deaths to all who opposed</li>
-          </ul>
-          
-          <h2>The Watering Hole <span>Bartender/Server - Milwaukee, WI - 2009</span></h2>
-          <ul>
-              <li>Worked on grass-roots promotional campaigns</li>
-              <li>Reduced theft and property damage percentages</li>
-              <li>Janitorial work, Laundry</li>
-          </ul> 
+      <dd *ngFor="let experience of experiences;let i=index">
+          <h2 [froalaView]="experiences[i].designation">{{experiences[i].designation}} </h2>
+          <span [froalaView]="experiences[i].company">{{experiences[i].company}}</span><br>
+          <span [froalaView]="experiences[i].duration">{{experiences[i].duration}}</span>
+          <p [froalaView]="experiences[i].details">
+              {{experiences[i].details}}
+          </p>
       </dd>
       
       <dd class="clear"></dd>
-      
-      <dt>Hobbies</dt>
-      <dd>World Domination, Deep Sea Diving, Murder Most Foul</dd>
-      
+
+      <div *ngIf="links.activateHobbies==1">
+            <dt>Hobbies</dt>
+            <dd *ngFor="let hobby of hobbies;let i=index" [froalaView]="hobbies[i]">{{hobbies[i]}}</dd>
+      </div>
       <dd class="clear"></dd>
-      
-      <dt>References</dt>
-      <dd>Available on request</dd>
-      
+
+      <div *ngIf="links.activateInterests==1">
+            <dt>Interests</dt>
+            <dd *ngFor="let interest of interests;let i=index" [froalaView]="interests[i]">{{interests[i]}}</dd>
+      </div>
       <dd class="clear"></dd>
+
+      <div *ngIf="links.activateCertificates==1">
+            <dt>Certificates</dt>
+            <dd *ngFor="let certificate of certificates;let i=index" [froalaView]="certificates[i]">{{certificates[i]}}</dd>
+      </div>
+      <dd class="clear"></dd>
+
+      <div *ngIf="links.activateLanguages==1">
+            <dt>Languages</dt>
+            <dd *ngFor="let language of languages;let i=index" [froalaView]="languages[i]">{{languages[i]}}</dd>
+      </div>
+      <dd class="clear"></dd>
+
   </dl>
   
   <div class="clear"></div>

@@ -1,6 +1,7 @@
 import { Component, OnInit,OnDestroy} from '@angular/core';
 import { Router,ActivatedRoute } from '@angular/router';
-import { DataStoreService } from '../data-store.service';
+
+import { DataStoreService } from '../services/data-store.service';
 
 @Component({
   selector: 'app-resume-builder',
@@ -9,23 +10,20 @@ import { DataStoreService } from '../data-store.service';
 })
 export class ResumeBuilderComponent implements OnInit, OnDestroy {
   
-  moreComponents:number=0;
-
   links:{activateHobbies,activateInterests,activateCertificates,activateLanguages,activateSummary}
-
   sections:{addHobbies,addInterests,addCertificates,addLanguagesKnown,addSummary}
-
-  public routeId:number;
+  public templateId:number;
+  moreComponents:number=0;
 
   constructor(private router:Router,private route:ActivatedRoute,private dataStore:DataStoreService) { }
 
   ngOnInit() {
     this.links=this.dataStore.links;
-    this.routeId=this.route.snapshot.params['id'];
+    this.templateId=this.route.snapshot.params['id'];
   }
 
   onPreview(){
-    this.router.navigate([this.routeId])
+    this.router.navigate([this.templateId])
   }
 
   onBackPage(){

@@ -1,7 +1,9 @@
 import { Component, OnInit,OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ResumeBuilderComponent } from '../resume-builder.component';
-import { DataStoreService } from '../../data-store.service';
+
+import { ResumeBuilderComponent } from '../resume-builder.component';;
+import { FroalaEditorService } from '../../services/froala-editor.service';
+import { PersonalDetailsDataService } from '../../services/personal-details-data.service';
 
 @Component({
   selector: 'app-personal-details',
@@ -10,30 +12,29 @@ import { DataStoreService } from '../../data-store.service';
 })
 export class PersonalDetailsComponent implements OnInit,OnDestroy{
 
-  constructor(private routeId:ResumeBuilderComponent,private dataStore:DataStoreService) { }
+  constructor(
+    private resumeBuilder:ResumeBuilderComponent,
+    private froalaEditor:FroalaEditorService,
+    private personalDetailsData:PersonalDetailsDataService
+  ) { }
 
   templateId:number;
-  froalaFlag:number=1;
+  options:object;
   personalDetails:{name:string,profession:string,dob:string,phoneNo:string,email:string,address:string};
+  froalaId:number=1;
 
   ngOnInit() {
-    this.templateId=this.routeId.routeId;
-    this.personalDetails=this.dataStore.personalDetails;
+    this.templateId=this.resumeBuilder.templateId;
+    this.options=this.froalaEditor.options;
+    this.personalDetails=this.personalDetailsData.personalDetails;
   }
 
-  public options: Object = { 
-    placeholderText: 'Edit Me',
-    charCounterCount: false,
-    toolbarButtons: ['bold', 'italic','fontSize','fontFamily'],
-    heightMax: 60
-  }
-
-  onTextClick(froalaFlag:number){
-    this.froalaFlag=froalaFlag;
+  onTextClick(froalaId:number){
+    this.froalaId=froalaId;
   }
 
   ngOnDestroy(){
-    this.dataStore.onSetPersonalDetails(this.personalDetails);
+    this.personalDetailsData.onSetPersonalDetails(this.personalDetails);
   }
 
 }

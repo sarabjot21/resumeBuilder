@@ -1,6 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+
 import { ResumeBuilderComponent } from '../resume-builder.component';
-import { DataStoreService } from '../../data-store.service';
+import { FroalaEditorService } from '../../services/froala-editor.service';
+import { EducationDetailsDataService } from '../../services/education-details-data.service';
 
 @Component({
   selector: 'app-education',
@@ -8,37 +10,35 @@ import { DataStoreService } from '../../data-store.service';
   styleUrls: ['./education.component.css']
 })
 export class EducationComponent implements OnInit ,OnDestroy{
-    // section: string[];
 
-  constructor(private routeId:ResumeBuilderComponent,private dataStore:DataStoreService) {
-    // this.section=["first"];
-   }
+  constructor(
+    private resumeBuilder:ResumeBuilderComponent,
+    private froalaEditor:FroalaEditorService,
+    private educationDetailsData:EducationDetailsDataService
+  ) { }
+
    templateId:number;
+   options:object;
+   educationDetails:{schoolName:string,Qualification:string,Marks:string}[];
    id:number;
    froalaId:number=0;
-   educationDetails=[{schoolName:'',Qualification:'',Marks:''}]; 
 
   ngOnInit() {
-    this.templateId=this.routeId.routeId;
-    this.id=this.dataStore.id;
-    this.educationDetails=this.dataStore.educationDetails;
-    console.log('in init')
-    }
-    public options: Object = { 
-      placeholderText: 'Edit Me',
-      charCounterCount: false,
-      toolbarButtons: ['bold', 'italic','fontSize','fontFamily'],
-      heightMax: 60
+    this.templateId=this.resumeBuilder.templateId;
+    this.options=this.froalaEditor.options;
+    this.educationDetails=this.educationDetailsData.educationDetails;
+    this.id=this.educationDetailsData.educationId;
     }
 
     onAddDetails(){
-      this.dataStore.onAddEducationDetails();
+      this.educationDetailsData.onAddEducationDetails();
       this.id++;
+      this.froalaId++;
     }
 
     onRemoveDetails(){
       if(this.id>=1){
-        this.dataStore.onRemoveEducationDetails();
+        this.educationDetailsData.onRemoveEducationDetails();
         this.id--;
       }
       if(this.froalaId>0){
@@ -47,20 +47,11 @@ export class EducationComponent implements OnInit ,OnDestroy{
     }
 
     onUpdateButton(buttonId){
-      console.log(buttonId.id);
       this.froalaId=buttonId.id;
     }
 
   ngOnDestroy(){
-    this.dataStore.onSetEducationDetails(this.educationDetails)
-    this.dataStore.onSetIdDetails(this.id)
+    this.educationDetailsData.onSetEducationDetails(this.educationDetails)
+    this.educationDetailsData.onSetEducationId(this.id)
   }
- 
-  // onAddSection(){ 
-  //   this.section.push('first');
-  // }
-
-  // removeThisSection(event) {
-  //   this.section.pop();
-  // }
 }

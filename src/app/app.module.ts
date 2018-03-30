@@ -12,13 +12,27 @@ import { ResumeBuilderComponent } from './resume-builder/resume-builder.componen
 import { PersonalDetailsComponent } from './resume-builder/personal-details/personal-details.component';
 import { EducationComponent } from './resume-builder/education/education.component';
 import { SkillsComponent } from './resume-builder/skills/skills.component';
+import { ExperienceComponent } from './resume-builder/experience/experience.component';
+import { HobbiesComponent } from './resume-builder/hobbies/hobbies.component';
+import { InterestsComponent } from './resume-builder/interests/interests.component';
+import { CertificatesComponent } from './resume-builder/certificates/certificates.component';
+import { LanguagesComponent } from './resume-builder/languages/languages.component';
 import { ResumePreviewComponent } from './resume-preview/resume-preview.component';
 import { ResumePreview1Component } from './resume-preview-1/resume-preview-1.component';
 import { ResumePreview2Component } from './resume-preview-2/resume-preview-2.component';
 import { ResumePreview3Component } from './resume-preview-3/resume-preview-3.component';
 
-import { DataStoreService } from './data-store.service';
-import { ExperienceComponent } from './resume-builder/experience/experience.component';
+import { DataStoreService } from './services/data-store.service';
+import { FroalaEditorService } from './services/froala-editor.service';
+import { PersonalDetailsDataService } from './services/personal-details-data.service';
+import { EducationDetailsDataService } from './services/education-details-data.service';
+import { SkillsDataService } from './services/skills-data.service';
+import { ExperienceDataService } from './services/experience-data.service';
+import { HobbiesDataService } from './services/hobbies-data.service';
+import { InterestsDataService } from './services/interests-data.service';
+import { CertificatesDataService } from './services/certificates-data.service';
+import { LanguagesDataService } from './services/languages-data.service';
+import { IndexPageComponent } from './index-page/index-page.component';
 
 @NgModule({
   declarations: [
@@ -33,12 +47,29 @@ import { ExperienceComponent } from './resume-builder/experience/experience.comp
     ResumePreview3Component,
     SkillsComponent,
     ExperienceComponent,
+    HobbiesComponent,
+    InterestsComponent,
+    CertificatesComponent,
+    LanguagesComponent,
+    IndexPageComponent,
 
   ],
   imports: [
     BrowserModule,FormsModule,AppRoutingModule,AngularFontAwesomeModule ,FroalaEditorModule.forRoot(), FroalaViewModule.forRoot()
   ],
-  providers: [ResumeBuilderComponent,DataStoreService],
+  providers: [
+    ResumeBuilderComponent,
+    FroalaEditorService,
+    DataStoreService,
+    PersonalDetailsDataService,
+    EducationDetailsDataService,
+    SkillsDataService,
+    ExperienceDataService,
+    HobbiesDataService,
+    InterestsDataService,
+    CertificatesDataService,
+    LanguagesDataService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

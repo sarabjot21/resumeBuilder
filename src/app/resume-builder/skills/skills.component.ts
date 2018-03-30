@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { DataStoreService } from '../../data-store.service';
+
 import { ResumeBuilderComponent } from '../resume-builder.component';
+import { FroalaEditorService } from '../../services/froala-editor.service';
+import { SkillsDataService } from '../../services/skills-data.service';
 
 @Component({
   selector: 'app-skills',
@@ -10,33 +12,33 @@ import { ResumeBuilderComponent } from '../resume-builder.component';
 export class SkillsComponent implements OnInit {
 
    templateId:number;
+   options: Object;
+   skills:{name:string,details:string}[];
    id:number;
-   froalaId:number=0;
-   skills=[{name:'',details:''}]; 
+   froalaId:number=0; 
 
-  constructor(private dataStore:DataStoreService,private routeId:ResumeBuilderComponent) { }
+  constructor(
+    private resumeBuilder:ResumeBuilderComponent,
+    private froalaEditor:FroalaEditorService,
+    private skillsService:SkillsDataService
+  ) { }
 
   ngOnInit() {
-    this.templateId=this.routeId.routeId;
-    this.id=this.dataStore.skillId;
-    this.skills=this.dataStore.skills;
-  }
-
-  public options: Object = { 
-    placeholderText: 'Edit Me',
-    charCounterCount: false,
-    toolbarButtons: ['bold', 'italic','fontSize','fontFamily'],
-    heightMax: 60
+    this.templateId=this.resumeBuilder.templateId;
+    this.options=this.froalaEditor.options;
+    this.skills=this.skillsService.skills;
+    this.id=this.skillsService.skillId;
   }
 
   onAddDetails(){
-    this.dataStore.onAddSkillDetails();
+    this.skillsService.onAddSkillDetails();
     this.id++;
+    this.froalaId++;
   }
 
   onRemoveDetails(){
     if(this.id>=1){
-      this.dataStore.onRemoveSkillDetails();
+      this.skillsService.onRemoveSkillDetails();
       this.id--;
     }
     if(this.froalaId>0){
@@ -45,13 +47,12 @@ export class SkillsComponent implements OnInit {
   }
 
   onUpdateButton(buttonId){
-    console.log(buttonId.id);
     this.froalaId=buttonId.id;
   }
 
 ngOnDestroy(){
-  this.dataStore.onSetSkillDetails(this.skills)
-  this.dataStore.onSetSkillIdDetails(this.id)
+  this.skillsService.onSetSkillDetails(this.skills)
+  this.skillsService.onSetSkillId(this.id)
 }
 
 }
