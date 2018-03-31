@@ -18,6 +18,15 @@
                                 </div>
                                 <div class="row">
                                         <div class="col-lg-10">
+                                                Image:
+                                                <span class="tel" [froalaView]="personalDetails.image">{{personalDetails.image}}</span>
+                                        </div>
+                                        <div class="col-lg-2">
+                                                <button class="btn btn-primary" (click)="onTextClick(10)">Update</button>
+                                        </div>
+                                </div>
+                                <div class="row">
+                                        <div class="col-lg-10">
                                                 Phone No:
                                                 <span class="tel" [froalaView]="personalDetails.phoneNo">{{personalDetails.phoneNo}}</span>
                                         </div>
@@ -77,6 +86,10 @@
                         <div *ngSwitchCase="6">
                                 <p>Address</p>
                                 <p [froalaEditor]="options" [(froalaModel)]="personalDetails.address" style="width:100%"></p>
+                        </div>
+                        <div *ngSwitchCase="10">
+                                <p>Image</p>
+                                <p [froalaEditor]="options" [(froalaModel)]="personalDetails.image" style="width:100%"></p>
                         </div>
                         <div *ngSwitchCase="7">
                                 <div class="row">

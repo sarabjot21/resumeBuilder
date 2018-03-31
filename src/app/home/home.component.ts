@@ -74,7 +74,8 @@ export class HomeComponent implements OnInit {
         dob:'Dob',
         phoneNo:'Phone',
         email:'Email',
-        address:'Address'
+        address:'Address',
+        image:'Image'
         }
     );
 

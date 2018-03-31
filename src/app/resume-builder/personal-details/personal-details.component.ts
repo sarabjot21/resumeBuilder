@@ -20,7 +20,7 @@ export class PersonalDetailsComponent implements OnInit,OnDestroy{
 
   templateId:number;
   options:object;
-  personalDetails:{name:string,profession:string,dob:string,phoneNo:string,email:string,address:string};
+  personalDetails:{name:string,profession:string,dob:string,phoneNo:string,email:string,address:string,image:string};
   newFields:{fieldName:string,fieldInfo:string}[];
   id:number;
   froalaId:number=1;

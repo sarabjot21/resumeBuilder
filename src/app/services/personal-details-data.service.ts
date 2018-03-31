@@ -5,13 +5,14 @@ export class PersonalDetailsDataService {
 
   constructor() { }
 
-  personalDetails:{name,profession,dob,phoneNo,email,address}={
+  personalDetails:{name,profession,dob,phoneNo,email,address,image}={
     name:'Name',
     profession:'Profession',
     dob:'Dob',
     phoneNo:'Phone',
     email:'Email',
-    address:'Address'
+    address:'Address',
+    image:'Image'
   }
 
   newFields:{fieldName:string,fieldInfo:string}[]=[];

@@ -20,7 +20,7 @@ import { DownloadService } from '../services/download.service';
 export class ResumePreview1Component implements OnInit {
 
   links:{activateHobbies,activateInterests,activateCertificates,activateLanguages,activateSummary}
-  personalDetails:{name,profession,dob,phoneNo,email,address};
+  personalDetails:{name,profession,dob,phoneNo,email,address,image};
   newFields:{fieldName:string,fieldInfo:string}[];
   educationDetails:{schoolName:string,Qualification:string,Marks:string}[];
   skills:{name:string,details:string}[];
