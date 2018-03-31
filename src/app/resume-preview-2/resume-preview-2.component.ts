@@ -21,6 +21,7 @@ export class ResumePreview2Component implements OnInit {
 
   links:{activateHobbies,activateInterests,activateCertificates,activateLanguages,activateSummary}
   personalDetails:{name,profession,dob,phoneNo,email,address};
+  newFields:{fieldName:string,fieldInfo:string}[];
   educationDetails:{schoolName:string,Qualification:string,Marks:string}[];
   skills:{name:string,details:string}[];
   experiences:{designation:string,company:string,duration:string,details:string}[];
@@ -46,6 +47,7 @@ export class ResumePreview2Component implements OnInit {
   ngOnInit() {
     this.links=this.dataStore.links;
     this.personalDetails=this.personalDetailsData.personalDetails;
+    this.newFields=this.personalDetailsData.newFields;
     this.educationDetails=this.educationDetailsData.educationDetails;
     this.skills=this.skillsData.skills;
     this.experiences=this.experienceData.experiences;
@@ -54,7 +56,7 @@ export class ResumePreview2Component implements OnInit {
     this.certificates=this.certificatesData.certificates;
     this.languages=this.languagesData.languages;
   }
-
+  
   downloadPDF(){
     this.downloadData.downloadPDF();
   }
@@ -62,5 +64,5 @@ export class ResumePreview2Component implements OnInit {
   onBackPage(){
     this.route.navigate(['resumeDetails','3']);
   }
-  
+
 }

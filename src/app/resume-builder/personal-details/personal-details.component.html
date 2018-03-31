@@ -1,157 +1,141 @@
 <div class="parent-container">
-        <div class="col-lg-7">
-                <div class="container text-center">
-                        <h3>
-                                <b>PERSONAL DETAILS</b>
-                        </h3>
-                </div>
-                <hr>
-                <div class="container">
-                        <div id="contact-info" class="vcard">
-                                <div class="row">
-                                        <div class="col-lg-10">
-                                                <h1 class="fn" [froalaView]="personalDetails.name">{{personalDetails.name}}</h1>
-                                        </div>
-                                        <div class="col-lg-2">
-                                                <button class="btn btn-primary" (click)="onTextClick(1)">Update</button>
-                                        </div>
-                                </div>
-                                <div class="row">
-                                        <div class="col-lg-10">
-                                                Image:
-                                                <span class="tel" [froalaView]="personalDetails.image">{{personalDetails.image}}</span>
-                                        </div>
-                                        <div class="col-lg-2">
-                                                <button class="btn btn-primary" (click)="onTextClick(10)">Update</button>
-                                        </div>
-                                </div>
-                                <div class="row">
-                                        <div class="col-lg-10">
-                                                Phone No:
-                                                <span class="tel" [froalaView]="personalDetails.phoneNo">{{personalDetails.phoneNo}}</span>
-                                        </div>
-                                        <div class="col-lg-2">
-                                                <button class="btn btn-primary" (click)="onTextClick(4)">Update</button>
-                                        </div>
-                                </div>
-                                <div class="row">
-                                        <div class="col-lg-10">
-                                                Email:
-                                                <span class="email" [froalaView]="personalDetails.email">{{personalDetails.email}}</span>
-                                        </div>
-                                        <div class="col-lg-2">
-                                                <button class="btn btn-primary" (click)="onTextClick(5)">Update</button>
-                                        </div>
-                                </div>
-                                <div class="row" *ngFor="let newField of newFields;let i=index">
-                                        <div class="col-lg-10">
-                                                <span [froalaView]="newFields[i].fieldName">{{newFields[i].fieldName}}</span>
-                                                <span class="tel" [froalaView]="newFields[i].fieldInfo">{{newFields[i].fieldInfo}}</span>
-                                        </div>
-                                        <div class="col-lg-2">
-                                                <button class="btn btn-primary" id="{{i}}" #buttonId (click)="onUpdateButton(7,buttonId)">Update</button>
-                                        </div>
-                                </div>
-                        </div>
-                </div>
-        </div>
-        <div class="col-lg-5">
-                <div class="container text-center">
-                        <h3>
-                                <b>EDITOR</b>
-                        </h3>
-                </div>
-                <hr>
-                <div class="container text-center" [ngSwitch]='froalaId' style="margin-top:10%">
-                        <div *ngSwitchCase="1">
-                                <p>Name</p>
-                                <p [froalaEditor]='options' [(froalaModel)]="personalDetails.name" style="width:100%"></p>
-                        </div>
-                        <div *ngSwitchCase="2">
-                                <p>Profession</p>
-                                <p [froalaEditor]='options' [(froalaModel)]="personalDetails.profession" style="width:100%"></p>
-                        </div>
-                        <div *ngSwitchCase="3">
-                                <p>DOB</p>
-                                <p [froalaEditor]='options' [(froalaModel)]="personalDetails.dob" style="width:100%"></p>
-                        </div>
-                        <div *ngSwitchCase="4">
-                                <p>Phone No</p>
-                                <p [froalaEditor]="options" [(froalaModel)]="personalDetails.phoneNo" style="width:100%"></p>
-                        </div>
-                        <div *ngSwitchCase="5">
-                                <p>Email</p>
-                                <p [froalaEditor]="options" [(froalaModel)]="personalDetails.email" style="width:100%"></p>
-                        </div>
-                        <div *ngSwitchCase="6">
-                                <p>Address</p>
-                                <p [froalaEditor]="options" [(froalaModel)]="personalDetails.address" style="width:100%"></p>
-                        </div>
-                        <div *ngSwitchCase="10">
-                                <p>Image</p>
-                                <p [froalaEditor]="options" [(froalaModel)]="personalDetails.image" style="width:100%"></p>
-                        </div>
-                        <div *ngSwitchCase="7">
-                                <div class="row">
-                                        <p>Field Name</p>
-                                        <p [froalaEditor]="options" [(froalaModel)]="newFields[newFieldsFroalaId].fieldName" style="width:80%"></p>
-                                </div>
-                                <div class="row">
-                                        <p>Field Info</p>
-                                        <p [froalaEditor]="options" [(froalaModel)]="newFields[newFieldsFroalaId].fieldInfo" style="width:80%"></p>
-                                </div>
-                        </div>
-                </div>
-                <div class="row">
-                        <div class="col-lg-6">
-                                <button class="btn btn-primary" (click)="onAddDetails()">Add</button>
-                        </div>
-                        <div class="col-lg-6">
-                                <button class="btn btn-primary" (click)="onRemoveDetails()">Remove</button>
-                        </div>
-                </div>
-        </div>
-</div>
-<!-- <div class="container">
+  <div class="col-lg-7">
+    <div class="container text-center">
+      <h3>
+        <b>PERSONAL DETAILS</b>
+      </h3>
+    </div>
+    <hr>
+    <div class="container">
+      <div id="contact-info" class="vcard">
         <div class="row">
-            <div class="col-lg-12">
-                    <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-lg-6">
-                                        <p>First Name</p>
-                                        <p [froalaEditor]='options' [(froalaModel)]="personalDetails.firstName" style="width:80%"></p>
-                                        
-                                </div>
-                                <div class="col-lg-6">
-                                        <p>Last Name</p>
-                                        <p [froalaEditor]="options" [(froalaModel)]="personalDetails.lastName" style="width:80%"></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-lg-6">
-                                        <p>Phone No</p>
-                                        <p [froalaEditor]="options" [(froalaModel)]="personalDetails.phoneNo" style="width:80%"></p>
-                                </div>
-                                <div class="col-lg-6">
-                                        <p>Email</p>
-                                        <p [froalaEditor]="options" [(froalaModel)]="personalDetails.email" style="width:80%"></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-lg-6">
-                                        <p>LinkedIn</p>
-                                        <p [froalaEditor]="options" [(froalaModel)]="personalDetails.linkedIn" style="width:80%"></p>
-                                </div>
-                                <div class="col-lg-6">
-                                        <p>Twitter</p>
-                                        <p [froalaEditor]="options" [(froalaModel)]="personalDetails.twitter" style="width:80%"></p>
-                                </div>
-                            </div>
-                        </div>          
-            </div>
+          <div class="col-lg-10">
+            <h1 class="fn" [froalaView]="personalDetails.name">{{personalDetails.name}}</h1>
+          </div>
+          <div class="col-lg-2">
+            <button class="btn btn-primary" (click)="onTextClick(1)">Update</button>
+          </div>
         </div>
-    </div> -->
+        <div class="row">
+          <div class="col-lg-10">
+            Image:
+            <span class="tel" [froalaView]="personalDetails.image">{{personalDetails.image}}</span>
+          </div>
+          <div class="col-lg-2">
+            <button class="btn btn-primary" (click)="onTextClick(10)">Update</button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-10">
+            Phone No:
+            <span class="tel" [froalaView]="personalDetails.phoneNo">{{personalDetails.phoneNo}}</span>
+          </div>
+          <div class="col-lg-2">
+            <button class="btn btn-primary" (click)="onTextClick(4)">Update</button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-10">
+            Email:
+            <span class="email" [froalaView]="personalDetails.email">{{personalDetails.email}}</span>
+          </div>
+          <div class="col-lg-2">
+            <button class="btn btn-primary" (click)="onTextClick(5)">Update</button>
+          </div>
+        </div>
+        <div class="row">
+                <div class="col-lg-10">
+                  DOB:
+                  <span class="dob" [froalaView]="personalDetails.dob">{{personalDetails.dob}}</span>
+                </div>
+                <div class="col-lg-2">
+                  <button class="btn btn-primary" (click)="onTextClick(3)">Update</button>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-10">
+                  ADDRESS:
+                  <span class="address" [froalaView]="personalDetails.address">{{personalDetails.address}}</span>
+                </div>
+                <div class="col-lg-2">
+                  <button class="btn btn-primary" (click)="onTextClick(6)">Update</button>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-10">
+                  PROFESSION:
+                  <span class="address" [froalaView]="personalDetails.profession">{{personalDetails.profession}}</span>
+                </div>
+                <div class="col-lg-2">
+                  <button class="btn btn-primary" (click)="onTextClick(2)">Update</button>
+                </div>
+              </div>
+        <div class="row" *ngFor="let newField of newFields;let i=index">
+          <div class="col-lg-10">
+            <span [froalaView]="newFields[i].fieldName">{{newFields[i].fieldName}}</span>
+            <span class="tel" [froalaView]="newFields[i].fieldInfo">{{newFields[i].fieldInfo}}</span>
+          </div>
+          <div class="col-lg-2">
+            <button class="btn btn-primary" id="{{i}}" #buttonId (click)="onUpdateButton(7,buttonId)">Update</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-5">
+    <div class="container text-center">
+      <h3>
+        <b>EDITOR</b>
+      </h3>
+    </div>
+    <hr>
+    <div class="container text-center" [ngSwitch]='froalaId' style="margin-top:10%">
+      <div *ngSwitchCase="1">
+        <p>Name</p>
+        <p [froalaEditor]='options' [(froalaModel)]="personalDetails.name" style="width:100%"></p>
+      </div>
+      <div *ngSwitchCase="2">
+        <p>Profession</p>
+        <p [froalaEditor]='options' [(froalaModel)]="personalDetails.profession" style="width:100%"></p>
+      </div>
+      <div *ngSwitchCase="3">
+        <p>DOB</p>
+        <p [froalaEditor]='options' [(froalaModel)]="personalDetails.dob" style="width:100%"></p>
+      </div>
+      <div *ngSwitchCase="4">
+        <p>Phone No</p>
+        <p [froalaEditor]="options" [(froalaModel)]="personalDetails.phoneNo" style="width:100%"></p>
+      </div>
+      <div *ngSwitchCase="5">
+        <p>Email</p>
+        <p [froalaEditor]="options" [(froalaModel)]="personalDetails.email" style="width:100%"></p>
+      </div>
+      <div *ngSwitchCase="6">
+        <p>Address</p>
+        <p [froalaEditor]="options" [(froalaModel)]="personalDetails.address" style="width:100%"></p>
+      </div>
+      <div *ngSwitchCase="10">
+        <p>Image</p>
+        <p [froalaEditor]="options" [(froalaModel)]="personalDetails.image" style="width:100%"></p>
+      </div>
+      <div *ngSwitchCase="7">
+        <div class="row">
+          <p>Field Name</p>
+          <p [froalaEditor]="options" [(froalaModel)]="newFields[newFieldsFroalaId].fieldName" style="width:80%"></p>
+        </div>
+        <div class="row">
+          <p>Field Info</p>
+          <p [froalaEditor]="options" [(froalaModel)]="newFields[newFieldsFroalaId].fieldInfo" style="width:80%"></p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6">
+        <button class="btn btn-primary" (click)="onAddDetails()">Add</button>
+      </div>
+      <div class="col-lg-6">
+        <button class="btn btn-primary" (click)="onRemoveDetails()">Remove</button>
+      </div>
+    </div>
+  </div>
+</div>

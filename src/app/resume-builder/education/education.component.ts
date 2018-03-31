@@ -19,7 +19,7 @@ export class EducationComponent implements OnInit ,OnDestroy{
 
    templateId:number;
    options:object;
-   educationDetails:{schoolName:string,Qualification:string,Marks:string}[];
+   educationDetails:{schoolName:string,Qualification:string,Marks:string,yearOfPassing:string}[];
    id:number;
    froalaId:number=0;
 

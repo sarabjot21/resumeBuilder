@@ -5,8 +5,7 @@
     <div class="left0">
 
       <div class="name0">
-        <img src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/b0/b08ef7e06939fd344065088e3d3f23848ea1f23b_full.jpg"
-        />
+        <p [froalaView]="personalDetails.image"  id="pic">{{personalDetails.image}}</p>
         <h1 class="h10" [froalaView]="personalDetails.name">{{personalDetails.name}}</h1>
        
         <h2 class="h30" [froalaView]="personalDetails.profession">{{personalDetails.profession}}</h2>
@@ -15,7 +14,7 @@
           <h3 class="h40" [froalaView]="personalDetails.phoneNo">{{personalDetails.phoneNo}}>Contact</h3>
           <p class="p0" [froalaView]="personalDetails.email">{{personalDetails.email}}
             <br>Address:
-            <span class="link">bambusource.de</span>
+            <span [froalaView]="personalDetails.address">{{personalDetails.address}}/</span>
           </p>
         </div>
 
@@ -26,7 +25,7 @@
       <div class="skills0">
         <h3 class="h30">Skills</h3>
         <dd *ngFor="let skill of skills;let j=index">
-       <h2 [froalaView]="skills[j].name">{{skills[j].name}}</h2>
+       <li [froalaView]="skills[j].name">{{skills[j].name}}</li>
        </div>
       <div class="divider0">
       </div>
@@ -36,7 +35,7 @@
     <div class="right0">
       <div class="education0">
         <h3 class="h30">Education</h3>
-        <table class="table table-striped" id="education-table" width="100%">
+        <table class="table table-striped" id="education-table" width="auto">
             
             <tr>
               <th>S.No</th>
@@ -47,87 +46,67 @@
             </tr>
                  <tr *ngFor="let education of educationDetails;let i=index">
                    <td>{{i+1}}</td>
-              <td class="std" [froalaView]="educationDetails[i].Qualification">{{educationDetails[id].Qualification}}>
+              <td class="std" [froalaView]="educationDetails[i].Qualification">{{educationDetails[i].Qualification}}>
                 </td>
-              <td [froalaView]="educationDetails[i].schoolName">{{educationDetails[id].schoolName}}
+              <td [froalaView]="educationDetails[i].schoolName">{{educationDetails[i].schoolName}}
               </td>
-              <td [froalaView]="educationDetails[i].yearOfPassing">{{educationDetails[id].yearOfPassing}}
+              <td [froalaView]="educationDetails[i].yearOfPassing">{{educationDetails[i].yearOfPassing}}
               </td>
-              <td [froalaView]="educationDetails[i].Marks">{{educationDetails[id].Marks}}</td>
+              <td [froalaView]="educationDetails[i].Marks">{{educationDetails[i].Marks}}</td>
             </tr>
           
         </table>
       </div>
 
       <div class="experience0">
-        <h3 class="h30">Experience</h3>
+          <h3 class="h30">Experience</h3>
         <hr>
-        <h4 class="h40">Experience1</h4>
-        <p class="p0">Our very first 3D Game Making experience from 2015. It is not much more than a virtual office you can walk through.
-          You can find it here:
-          <br> From:
-          <br> To:
-        </p>
-        <h4 class="h40">Experience2</h4>
-        <p class="p0">The first Portal 2 mod Jakob and I developed. We published it on moddb.com in April 2016 after a few months of work.
-          You can give it a try here:
-          <br> From:
-          <br> To:
-        </p>
-
+        <dd *ngFor="let experience of experiences;let i=index">
+          <h5 [froalaView]="experiences[i].designation">{{experiences[i].designation}} </h5>
+          <span [froalaView]="experiences[i].company">{{experiences[i].company}}</span><br>
+          <span [froalaView]="experiences[i].duration">{{experiences[i].duration}}</span>
+          <p [froalaView]="experiences[i].details">
+              {{experiences[i].details}}
+          </p>
+      </dd>
       </div>
 
-<!--
-      <div class="hobbies0">
+
+      <div *ngIf="links.activateHobbies==1">
         <h3 class="h30">Hobbies</h3>
         <hr>
-        <h4 class="h40">Hobbies1</h4>
-        <p class="p0">Our very first 3D Game Making experience from 2015. It is not much more than a virtual office you can walk through.
-          You can find it here:
-          <br> From:
-          <br> To:
-        </p>
-
+      
+            
+            <dd *ngFor="let hobby of hobbies;let i=index" [froalaView]="hobbies[i]">{{hobbies[i]}}</dd>
       </div>
+
+      <div *ngIf="links.activateInterests==1">
       <div class="interest0">
         <h3 class="h30">Interest</h3>
         <hr>
-        <h4 class="h40">Interest1</h4>
-        <p class="p0">Our very first 3D Game Making experience from 2015. It is not much more than a virtual office you can walk through.
-          You can find it here:
-
-          <h4 class="h40">Interest2</h4>
-          <p class="p0">The first Portal 2 mod Jakob and I developed. We published it on moddb.com in April 2016 after a few months of
-            work. You can give it a try here:
+       
+          <dd *ngFor="let interest of interests;let i=index" [froalaView]="interests[i]">{{interests[i]}}</dd>
+      </div>
 
       </div>
+
+      <div *ngIf="links.activateCertificates==1">
       <div class="certificate0">
         <h3 class="h30">Certificates</h3>
         <hr>
-        <h4 class="h40">Certificate1</h4>
-        <p class="p0">Our very first 3D Game Making experience from 2015. It is not much more than a virtual office you can walk through.
-          You can find it here:
-          <br> Valid From:
-          <br> Valid Till
-        </p>
-
+            <dd *ngFor="let certificate of certificates;let i=index" [froalaView]="certificates[i]">{{certificates[i]}}</dd>
       </div>
+        </div>
+      
+        <div *ngIf="links.activateLanguages==1">
       <div class="language0">
         <h3 class="h30">Languages</h3>
-        <hr>
-        <ul class="ul0">
-
-          <li class="l10">
-
-            <p>buv</p>
-          </li>
-          <li class="l20">
-            <p> jv</p>
-          </li>
-
-        </ul>
-
+        <hr> 
+        <dd *ngFor="let language of languages;let i=index" [froalaView]="languages[i]">{{languages[i]}}</dd>
       </div>
+       
+      </div>
+      <!--
       <div class="summary0">
         <h3 class="h30">Summary</h3>
         <hr>

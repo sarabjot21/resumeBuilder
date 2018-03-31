@@ -8,7 +8,9 @@ export class DownloadService {
   constructor() { }
 
   downloadPDF(){
+    
       html2canvas(document.body).then(function(canvas) {
+      
         var img = canvas.toDataURL('image/png');
         var doc = new jsPDF("l", "px", "a4");
         var width = doc.internal.pageSize.width;    

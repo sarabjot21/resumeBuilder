@@ -61,8 +61,10 @@ export class HomeComponent implements OnInit {
       this.templateIdprev--;
     }
   }
-
-  onSuccess(){
+  onFirst()
+{
+  this.router.navigate(['index']);
+}  onSuccess(){
 
     this.dataStore.onSetTemplateId(this.templateId,this.templateIdprev);
 

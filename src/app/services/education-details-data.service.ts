@@ -5,7 +5,7 @@ export class EducationDetailsDataService {
 
   constructor() { }
 
-  educationDetails:{schoolName:string,Qualification:string,Marks:string}[]=[{schoolName:'School',Qualification:'Qualifiaction',Marks:'Marks'}];
+  educationDetails:{schoolName:string,Qualification:string,Marks:string,yearOfPassing:string}[]=[{schoolName:'School',Qualification:'Qualifiaction',Marks:'Marks',yearOfPassing:'yearOfPassing'}];
   educationId:number=0;
 
   onSetEducationDetails(educationDetails){
@@ -13,7 +13,7 @@ export class EducationDetailsDataService {
   }
   onAddEducationDetails(){
     this.educationDetails.push({
-      schoolName:'School',Qualification:'Qualifiaction',Marks:'Marks'
+      schoolName:'School',Qualification:'Qualifiaction',Marks:'Marks',yearOfPassing:'yearOfPassing'
     })
   }
   onRemoveEducationDetails(){

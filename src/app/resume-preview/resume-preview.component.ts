@@ -21,7 +21,7 @@ export class ResumePreviewComponent implements OnInit {
 
   links:{activateHobbies,activateInterests,activateCertificates,activateLanguages,activateSummary}
   personalDetails:{name,profession,dob,phoneNo,email,address};
-  educationDetails:{schoolName:string,Qualification:string,Marks:string}[];
+  educationDetails:{schoolName:string,Qualification:string,Marks:string,yearOfPassing:string}[];
   skills:{name:string,details:string}[];
   experiences:{designation:string,company:string,duration:string,details:string}[];
   hobbies:string[];
