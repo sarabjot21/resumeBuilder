@@ -10,6 +10,7 @@ import { HobbiesDataService } from '../services/hobbies-data.service';
 import { InterestsDataService } from '../services/interests-data.service';
 import { CertificatesDataService } from '../services/certificates-data.service';
 import { LanguagesDataService } from '../services/languages-data.service';
+import { DownloadService } from '../services/download.service';
 
 @Component({
   selector: 'app-resume-preview-2',
@@ -38,7 +39,8 @@ export class ResumePreview2Component implements OnInit {
     private hobbiesData:HobbiesDataService,
     private interestsData:InterestsDataService,
     private certificatesData:CertificatesDataService,
-    private languagesData:LanguagesDataService   
+    private languagesData:LanguagesDataService,
+    private downloadData:DownloadService
   ) { }
 
   ngOnInit() {
@@ -52,6 +54,11 @@ export class ResumePreview2Component implements OnInit {
     this.certificates=this.certificatesData.certificates;
     this.languages=this.languagesData.languages;
   }
+
+  downloadPDF(){
+    this.downloadData.downloadPDF();
+  }
+
   onBackPage(){
     this.route.navigate(['resumeDetails','3']);
   }

@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { FroalaEditorModule, FroalaViewModule } from 'angular2-froala-wysiwyg';
@@ -17,6 +17,7 @@ import { HobbiesComponent } from './resume-builder/hobbies/hobbies.component';
 import { InterestsComponent } from './resume-builder/interests/interests.component';
 import { CertificatesComponent } from './resume-builder/certificates/certificates.component';
 import { LanguagesComponent } from './resume-builder/languages/languages.component';
+import { IndexPageComponent } from './index-page/index-page.component';
 import { ResumePreviewComponent } from './resume-preview/resume-preview.component';
 import { ResumePreview1Component } from './resume-preview-1/resume-preview-1.component';
 import { ResumePreview2Component } from './resume-preview-2/resume-preview-2.component';
@@ -32,7 +33,7 @@ import { HobbiesDataService } from './services/hobbies-data.service';
 import { InterestsDataService } from './services/interests-data.service';
 import { CertificatesDataService } from './services/certificates-data.service';
 import { LanguagesDataService } from './services/languages-data.service';
-import { IndexPageComponent } from './index-page/index-page.component';
+import { DownloadService } from './services/download.service';
 
 @NgModule({
   declarations: [
@@ -68,7 +69,8 @@ import { IndexPageComponent } from './index-page/index-page.component';
     HobbiesDataService,
     InterestsDataService,
     CertificatesDataService,
-    LanguagesDataService
+    LanguagesDataService,
+    DownloadService
   ],
   bootstrap: [AppComponent]
 })

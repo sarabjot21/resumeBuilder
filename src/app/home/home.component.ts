@@ -78,52 +78,58 @@ export class HomeComponent implements OnInit {
         }
     );
 
+    this.personalDetailsData.onSetNewFields(
+      []
+    );
+
+    this.personalDetailsData.onSetNewFieldsId(0);
+
     // EDUCATION DETAILS NULLIFY
     this.educationDetailsData.onSetEducationDetails(
       [{schoolName:'School',Qualification:'Qualifiaction',Marks:'Marks'}]
-    )
+    );
 
     this.educationDetailsData.onSetEducationId(0);
 
     // SKILL DETAILS NULLIFY
     this.skillsData.onSetSkillDetails(
       [{name:'Name',details:'Details'}]
-    )
+    );
 
     this.skillsData.onSetSkillId(0);
 
     // EXPERIENCE DETAILS NULLIFY
     this.experienceData.onSetExperienceDetails(
       [{designation:'Designation',company:'Company',duration:'Duartion',details:'Details'}]
-    )
+    );
 
     this.experienceData.onSetExperienceId(0);
 
     // HOBBIES DETAILS NULLIFY
     this.hobbiesData.onSetHobbies(
       ['Hobbies']
-    )
+    );
 
     this.hobbiesData.onSetHobbiesId(0);
 
     // INTERESTS DETAILS NULLIFY
     this.interestsData.onSetInterests(
       ['Interest']
-    )
+    );
 
     this.interestsData.onSetInterestsId(0);
 
     // CERTIFICATES DETAILS NULLIFY
     this.certificatesData.onSetCertificates(
       ['Certificate']
-    )
+    );
 
     this.certificatesData.onSetCertificatesId(0);
 
     // LANGUAGES DETAILS NULLIFY
     this.languagesData.onSetLanguages(
       ['Language']
-    )
+    );
 
     this.languagesData.onSetLanguagesId(0);
 

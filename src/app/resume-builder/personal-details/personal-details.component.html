@@ -6,8 +6,8 @@
                         </h3>
                 </div>
                 <hr>
-                <div class="container" [ngSwitch]="templateId">
-                        <div id="contact-info" class="vcard" *ngSwitchCase="2">
+                <div class="container">
+                        <div id="contact-info" class="vcard">
                                 <div class="row">
                                         <div class="col-lg-10">
                                                 <h1 class="fn" [froalaView]="personalDetails.name">{{personalDetails.name}}</h1>
@@ -20,7 +20,6 @@
                                         <div class="col-lg-10">
                                                 Phone No:
                                                 <span class="tel" [froalaView]="personalDetails.phoneNo">{{personalDetails.phoneNo}}</span>
-                                                <br>
                                         </div>
                                         <div class="col-lg-2">
                                                 <button class="btn btn-primary" (click)="onTextClick(4)">Update</button>
@@ -35,9 +34,15 @@
                                                 <button class="btn btn-primary" (click)="onTextClick(5)">Update</button>
                                         </div>
                                 </div>
-                                <!-- Profession: <span class="email" [froalaView]="personalDetails.email" (click)="onTextClick(2)">{{personalDetails.profession}}</span>
-                                                                DOB: <span class="email" [froalaView]="personalDetails.email" (click)="onTextClick(3)">{{personalDetails.dob}}</span> -->
-                                <!-- Address: <span class="email" [froalaView]="personalDetails.email" (click)="onTextClick(6)">{{personalDetails.address}}</span> -->
+                                <div class="row" *ngFor="let newField of newFields;let i=index">
+                                        <div class="col-lg-10">
+                                                <span [froalaView]="newFields[i].fieldName">{{newFields[i].fieldName}}</span>
+                                                <span class="tel" [froalaView]="newFields[i].fieldInfo">{{newFields[i].fieldInfo}}</span>
+                                        </div>
+                                        <div class="col-lg-2">
+                                                <button class="btn btn-primary" id="{{i}}" #buttonId (click)="onUpdateButton(7,buttonId)">Update</button>
+                                        </div>
+                                </div>
                         </div>
                 </div>
         </div>
@@ -72,6 +77,24 @@
                         <div *ngSwitchCase="6">
                                 <p>Address</p>
                                 <p [froalaEditor]="options" [(froalaModel)]="personalDetails.address" style="width:100%"></p>
+                        </div>
+                        <div *ngSwitchCase="7">
+                                <div class="row">
+                                        <p>Field Name</p>
+                                        <p [froalaEditor]="options" [(froalaModel)]="newFields[newFieldsFroalaId].fieldName" style="width:80%"></p>
+                                </div>
+                                <div class="row">
+                                        <p>Field Info</p>
+                                        <p [froalaEditor]="options" [(froalaModel)]="newFields[newFieldsFroalaId].fieldInfo" style="width:80%"></p>
+                                </div>
+                        </div>
+                </div>
+                <div class="row">
+                        <div class="col-lg-6">
+                                <button class="btn btn-primary" (click)="onAddDetails()">Add</button>
+                        </div>
+                        <div class="col-lg-6">
+                                <button class="btn btn-primary" (click)="onRemoveDetails()">Remove</button>
                         </div>
                 </div>
         </div>

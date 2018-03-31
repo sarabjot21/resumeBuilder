@@ -9,9 +9,13 @@
       <h1 class="fn" [froalaView]="personalDetails.name">{{personalDetails.name}}</h1>
   
       <p>
-          Phone No: <span class="tel" [froalaView]="personalDetails.phoneNo">{{personalDetails.phoneNo}}</span><br />
+          Phone No: <span class="tel" [froalaView]="personalDetails.phoneNo">{{personalDetails.phoneNo}}</span>
           Email: <a class="email" href="mailto:greatoldone@lovecraft.com" [froalaView]="personalDetails.email">{{personalDetails.email}}</a>
       </p>
+      <p *ngFor="let newField of newFields,let i=index">
+            <a [froalaView]="newFields[i].fieldName">{{newFields[i].fieldName}}</a>
+            <span class="tel" [froalaView]="newFields[i].fieldInfo">{{newFields[i].fieldInfo}}</span>
+          </p>
   </div>
   
   <div class="clear"></div>
@@ -77,5 +81,6 @@
   <div class="clear"></div>
   <div class="footer">
         <button class="btn btn-primary" (click)="onBackPage()">Back To Editor</button>
+        <button type="button" (click)="downloadPDF()" class="btn btn-primary">download pdf </button>
 </div>
 </div>

@@ -21,20 +21,52 @@ export class PersonalDetailsComponent implements OnInit,OnDestroy{
   templateId:number;
   options:object;
   personalDetails:{name:string,profession:string,dob:string,phoneNo:string,email:string,address:string};
+  newFields:{fieldName:string,fieldInfo:string}[];
+  id:number;
   froalaId:number=1;
+  newFieldsFroalaId:number=-1;
 
   ngOnInit() {
     this.templateId=this.resumeBuilder.templateId;
     this.options=this.froalaEditor.options;
     this.personalDetails=this.personalDetailsData.personalDetails;
+    this.newFields=this.personalDetailsData.newFields;
+    this.id=this.personalDetailsData.newFieldId;
   }
 
   onTextClick(froalaId:number){
     this.froalaId=froalaId;
   }
 
+  onAddDetails(){
+    this.personalDetailsData.onAddNewFields();
+    this.froalaId=7;
+    this.id++;
+    this.newFieldsFroalaId++;
+  }
+
+  onRemoveDetails(){
+    if(this.id>=0){
+      this.personalDetailsData.onRemoveNewFields();
+      this.id--;
+    }
+    if(this.newFieldsFroalaId>-1){
+      this.newFieldsFroalaId--;
+    }
+    if(this.newFieldsFroalaId==-1){
+      this.froalaId=5;
+    }
+  }
+
+  onUpdateButton(froalaId,buttonId){
+    this.froalaId=froalaId;
+    this.newFieldsFroalaId=buttonId.id;
+  }
+
   ngOnDestroy(){
     this.personalDetailsData.onSetPersonalDetails(this.personalDetails);
+    this.personalDetailsData.onSetNewFields(this.newFields);
+    this.personalDetailsData.onSetNewFieldsId(this.id);
   }
 
 }
