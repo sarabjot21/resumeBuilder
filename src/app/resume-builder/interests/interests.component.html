@@ -1,5 +1,5 @@
 <div class="parent-container">
-    <div class="col-lg-7">
+    <div class="col-lg-6">
       <div class="container text-center">
         <h3>
           <b>INTERESTS</b>
@@ -10,28 +10,27 @@
         <div class="container" *ngFor="let interest of interests;let i=index">
           <div class="row">
             <div class="col-lg-10">
-              <dd>
-                <strong>Interests:</strong>
-                <p [froalaView]="interests[i]">{{interests[i]}}</p>
-              </dd>
+              <b>Interest{{i+1}}:</b>
+              <span class="tel" [froalaView]="interests[i]">{{interests[i]}}</span>
             </div>
             <div class="col-lg-2">
               <button class="btn btn-primary" id="{{i}}" #buttonId (click)="onUpdateButton(buttonId)">Update</button>
             </div>
           </div>
+          <br>
         </div>
       </div>
     </div>
-    <div class="col-lg-5">
+    <div class="col-lg-6" id="editor">
       <div class="container text-center">
         <h3>
           <b>EDITOR</b>
         </h3>
       </div>
       <hr>
-      <div class="container text-center">
+      <div>
         <div class="row">
-          <p>Interests</p>
+          <div class="container text-center">Interest</div>
           <p [froalaEditor]="options" [(froalaModel)]="interests[froalaId]" style="width:80%"></p>
         </div>
         <div class="row">

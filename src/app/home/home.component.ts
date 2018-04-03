@@ -89,7 +89,7 @@ export class HomeComponent implements OnInit {
 
     // EDUCATION DETAILS NULLIFY
     this.educationDetailsData.onSetEducationDetails(
-      [{schoolName:'School',Qualification:'Qualifiaction',Marks:'Marks'}]
+      [{schoolName:'School',Qualification:'Qualifiaction',Marks:'Marks',yearOfPassing:'year'}]
     );
 
     this.educationDetailsData.onSetEducationId(0);

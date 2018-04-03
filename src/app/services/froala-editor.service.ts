@@ -8,8 +8,20 @@ export class FroalaEditorService {
   public options: Object = { 
     placeholderText: 'Edit Me',
     charCounterCount: false,
-    toolbarButtons: ['insertImage','bold', 'italic','fontSize','fontFamily','underline'],
-    heightMax: 60
+    toolbarButtons: ['bold', 'italic','underline','fontSize','fontFamily'],
+    height:100,
+    width:350,
+    toolbarSticky: false
+  }
+
+    public imageOptions: Object = { 
+    placeholderText: 'Edit Me',
+    charCounterCount: false,
+    toolbarButtons: ['insertImage'],
+    height:250,
+    width:350,
+    toolbarSticky: false,
+    imageInsertButtons: ['imageBack', '|', 'imageUpload']
   }
 
 }

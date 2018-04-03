@@ -20,6 +20,7 @@ export class PersonalDetailsComponent implements OnInit,OnDestroy{
 
   templateId:number;
   options:object;
+  optionsImage:object;
   personalDetails:{name:string,profession:string,dob:string,phoneNo:string,email:string,address:string,image:string};
   newFields:{fieldName:string,fieldInfo:string}[];
   id:number;
@@ -29,6 +30,7 @@ export class PersonalDetailsComponent implements OnInit,OnDestroy{
   ngOnInit() {
     this.templateId=this.resumeBuilder.templateId;
     this.options=this.froalaEditor.options;
+    this.optionsImage=this.froalaEditor.imageOptions;
     this.personalDetails=this.personalDetailsData.personalDetails;
     this.newFields=this.personalDetailsData.newFields;
     this.id=this.personalDetailsData.newFieldId;

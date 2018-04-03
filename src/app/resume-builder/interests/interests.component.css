@@ -1,18 +1,16 @@
 .parent-container{
     display: flex;
+    margin-left: 130px
 }
 .form-control{
     background-color: lightgrey
 }
-.headings{
-    font-size: 25px;
-}
-.col-lg-5{
+#editor{
     background-color: lightgrey;
     height: 100%;
-    width: 280px;
-    margin-left:82%;
-    position: fixed;
+    width:25%;
+    margin-left:75%;
+    position:fixed;
     z-index: 1;
     top: 0;
     left: 0;
@@ -21,9 +19,6 @@
 }
 hr{
     background-color: black
-}
-#contact-info{
-    margin-left: 300px
 }
 
 
