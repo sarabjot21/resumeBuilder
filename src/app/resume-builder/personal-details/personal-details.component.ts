@@ -26,6 +26,8 @@ export class PersonalDetailsComponent implements OnInit,OnDestroy{
   id:number;
   froalaId:number=1;
   newFieldsFroalaId:number=-1;
+  dateValidFlag=0;
+  // regex=/(\s|)[0-9]{1,2}(\s|)((\/[0-9]{1,2}\/[0-9]{4})|([a-z]{3,8}(\s|)[,](\s|)[0-9]{4}))(\s|)/gmi;
 
   ngOnInit() {
     this.templateId=this.resumeBuilder.templateId;

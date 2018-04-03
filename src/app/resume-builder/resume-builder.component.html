@@ -14,6 +14,10 @@
         <div class="container">
                 <button class="btn btn-primary" (click)="onAddSection()">Add New Section</button>
         </div>
+<div class="footer">
+                <button class="btn btn-primary" (click)="onBackPage()">Back</button>
+                <button class="btn btn-primary" (click)="onPreview()">Preview</button>
+        </div>
 </div>
 
 <div class="sidenav" *ngIf="moreComponents==1">
@@ -51,10 +55,5 @@
 
 <div class="main">
         <router-outlet></router-outlet>
-</div>
-
-<div class="footer">
-        <button class="btn btn-primary" (click)="onBackPage()">Back</button>
-        <button class="btn btn-primary" (click)="onPreview()">Preview</button>
 </div>
 </div>
