@@ -1,5 +1,6 @@
- .parent-container{
-    overflow-y: scroll
+.parent-container{
+    overflow-y: scroll;
+    font-family: cursive
  }
  .sidenav {
     height: 100%;
