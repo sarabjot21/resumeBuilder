@@ -9,9 +9,12 @@ export class DownloadService {
 
   downloadPDF(){
     
-      html2canvas(document.body).then(function(canvas) {
-      
-        var img = canvas.toDataURL('image/png');
+      html2canvas(document.querySelector('#download')
+      // ,{allowTaint:true,useCORS:true,proxy:'http://localhost:4200/2'}
+    ).then(function(canvas) {
+        var img = new Image();
+        // img.crossOrigin = 'anonymous';
+        img = canvas.toDataURL('image/png');
         var doc = new jsPDF("l", "px", "a4");
         var width = doc.internal.pageSize.width;    
         var height = doc.internal.pageSize.height;

@@ -14,6 +14,13 @@
         dt { font-style: italic; font-weight: bold; font-size: 18px; text-align: right; padding: 0 26px 0 0; width: 150px; float: left; height: 100px; border-right: 1px solid #999;  }
         dd { width: 600px; float: right; }
         dd.clear { float: none; margin: 0; height: 15px; }
+
+        .download{
+                margin-left: 20px;
+                margin-right: 20px;
+                margin-top: 20px;
+                marker-end: 20px;
+            }
         .footer {
                 position: fixed;
                 left: 0;

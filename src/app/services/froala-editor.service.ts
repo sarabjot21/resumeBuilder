@@ -18,8 +18,9 @@ export class FroalaEditorService {
     placeholderText: 'Edit Me',
     charCounterCount: false,
     toolbarButtons: ['insertImage'],
-    height:250,
+    height:150,
     width:350,
+    imageDefaultWidth:180,
     toolbarSticky: false,
     imageInsertButtons: ['imageBack', '|', 'imageUpload']
   }

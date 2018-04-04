@@ -43,6 +43,7 @@
    }
  }
  .profile2 .name-wrapper2 {
+   padding: 20px;
    float: left;
    width: 60%;
  }
@@ -332,6 +333,13 @@
      width: 70%;
    }
  }
+
+ .download{
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 20px;
+  marker-end: 20px;
+}
  .footer {
     position: fixed;
     left: 0;

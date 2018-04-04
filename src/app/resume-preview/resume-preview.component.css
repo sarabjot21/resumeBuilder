@@ -47,7 +47,7 @@ body.rs0 {
     border: 2px solid #f0f0f020;
 }
 .name0 h3.h30 {
-    font-family: "San Francisco Thin", sans-serif;
+    font-family: "San Francisco Thin";
     padding: 0.5em 0;
 }
 .left0 .divider0 {
@@ -85,7 +85,14 @@ body.rs0 {
 .right0
 {
     width:100%;
-    padding: 2em 2em;
+    padding: 1em 1em;
+}
+
+.download{
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .footer {

@@ -16,16 +16,7 @@
           <div class="col-lg-2">
             <button class="btn btn-primary" (click)="onTextClick(1)">Update</button>
           </div>
-        </div>
-        <div class="row">
-          <div class="col-lg-10">
-            <b>Image:</b>
-            <span class="tel" [froalaView]="personalDetails.image">{{personalDetails.image}}</span>
-          </div>
-          <div class="col-lg-2">
-            <button class="btn btn-primary" (click)="onTextClick(10)">Update</button>
-          </div>
-        </div>
+        </div> 
         <div class="row">
           <div class="col-lg-10">
             <b>Phone No:</b>
@@ -80,6 +71,15 @@
             <button class="btn btn-primary" id="{{i}}" #buttonId (click)="onUpdateButton(7,buttonId)">Update</button>
           </div>
         </div>
+        <div class="row">
+          <div class="col-lg-10">
+            <b>Image:</b>
+            <span class="tel" [froalaView]="personalDetails.image">{{personalDetails.image}}</span>
+          </div>
+          <div class="col-lg-2">
+            <button class="btn btn-primary" (click)="onTextClick(10)">Update</button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -130,7 +130,7 @@
         </div>
       </div>
     </div>
-    <div class="row">
+    <div class="row" style="text-align:center;margin-top:350px">
       <div class="col-lg-6">
         <button class="btn btn-primary" (click)="onAddDetails()">Add Field</button>
       </div>
